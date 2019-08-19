@@ -10,7 +10,7 @@ class NavComp extends Component {
   render() {
     return (
       <Navbar expand="lg" id="flipkart-navbar">
-        <Navbar.Brand href="#home" style={{ color: "white" }}>
+        <Navbar.Brand href="/" style={{ color: "white" }}>
           Book Store
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -2,13 +2,19 @@
 import React from "react";
 import "./Styles/NavigationBar.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CartNav() {
   const cartItems = useSelector(state => state.CartItem.CartItems);
 
   return (
     <div className="cart largenav col-sm-2">
-      <a className="cart-button">
+      <Link
+        className="cart-button"
+        to={{
+          pathname: `/cart/`
+        }}
+      >
         <svg
           className="cart-svg "
           width="16 "
@@ -22,7 +28,7 @@ function CartNav() {
         </svg>{" "}
         Cart
         <span className="item-number ">{cartItems.length}</span>
-      </a>
+      </Link>
     </div>
   );
 }
