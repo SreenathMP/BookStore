@@ -89,7 +89,7 @@ class CartProductList extends Component {
                   </td>
 
                   <td className="border-0 align-middle">
-                    <a href className="text-dark">
+                    <a href="" className="text-dark">
                       <i
                         className="fa fa-trash"
                         data-index={item.bookID}

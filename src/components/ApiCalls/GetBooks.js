@@ -3,8 +3,9 @@ class GetBooks extends Component {
   state = {};
 
   GetBooks = async () => {
+    
     const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/http://starlord.hackerearth.com/books`
+      `https://bookstore-f21dc.firebaseio.com/books.json`
     );
     const data = await response.json();
     return data;

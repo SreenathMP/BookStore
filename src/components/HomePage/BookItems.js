@@ -26,16 +26,37 @@ class BookItems extends Component {
   author_max = 20;
   state = { Books: [], pageOfItems: [] };
 
-  componentDidMount() {
+  
+
+    componentWillMount(){
+      
     this.bookList.GetBooks().then(books => {
+      
       this.setState({
         Books: books.sort((a, b) => (a.title > b.title ? 1 : -1))
       });
     });
+    }
+
+  componentDidUpdate(){
+    
+
+    const books=JSON.stringify(this.state.Books);
+    localStorage.setItem("Books",books);
   }
   onChangePage(pageOfItems) {
     // update state with new page of items
     this.setState({ pageOfItems: pageOfItems });
+  }
+
+  componentDidMount(){
+    
+
+    const json= localStorage.getItem("Books");
+    const Books=JSON.parse(json);
+    this.setState({
+     Books
+    })
   }
 
   handleClick = e => {

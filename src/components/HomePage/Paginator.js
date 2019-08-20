@@ -130,7 +130,7 @@ class Paginator extends React.Component {
                 </li>
                 {pager.pages.map((page, index) =>
                     <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-                        <a className="page-link" style={pagelink} onClick={() => this.setPage(page)}>{page}</a>
+                        <a className="page-link" activeClassName="active" style={pagelink} onClick={() => this.setPage(page)}>{page}</a>
                     </li>
                 )}
                 <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
