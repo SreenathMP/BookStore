@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
-import "./Styles/Product.css";
+import "./Product.css";
 import NavComp from "../Navigation/NavComp";
 import { AddtoCart } from "../../actions";
 import { connect } from "react-redux";

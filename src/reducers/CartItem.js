@@ -26,12 +26,11 @@ const CartItem = (state = initialState, action) => {
     }
 
     case "DELETE_ITEM": {
+      let deletedItem = state.CartItems.find(
+        item => item.bookID === action.payload
+      );
 
-      let deletedItem = state.CartItems.find(item=> item.bookID === action.payload)
-
-
-      let newTotal =
-        state.total - deletedItem.price * deletedItem.quantity;
+      let newTotal = state.total - deletedItem.price * deletedItem.quantity;
 
       return {
         CartItems: state.CartItems.filter(e => e.bookID !== action.payload),

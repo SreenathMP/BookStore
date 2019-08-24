@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import "./Styles/NavigationBar.css";
+import "./NavigationBar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import SearchForm from "./SearchForm";
 import CartNav from "./CartNav";

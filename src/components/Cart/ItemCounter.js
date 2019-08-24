@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Styles/Counter.css";
+import "./Counter.css";
 import { AddQuantity, SubQuantity, UpdateQuantity } from "../../actions";
 
 function mapDispatchToProps(dispatch) {

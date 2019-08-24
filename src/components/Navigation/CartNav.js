@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import "./Styles/NavigationBar.css";
+import "./NavigationBar.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 

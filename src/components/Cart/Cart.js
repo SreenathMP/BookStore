@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import "./Styles/Cart.css";
+import "./Cart.css";
 import NavComp from "../Navigation/NavComp";
 import { connect } from "react-redux";
 import CartProductList from "./CartProductList";

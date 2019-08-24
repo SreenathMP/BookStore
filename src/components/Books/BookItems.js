@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
-import "./Styles/Items.css";
-import GetBooks from "../ApiCalls/GetBooks";
+import "./Items.css";
+import GetBooks from "./GetBooks";
 import Paginator from "./Paginator";
 import { AddtoCart } from "../../actions";
 import { connect } from "react-redux";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BookItems from "./HomePage/BookItems";
+import BookItems from "./Books/BookItems";
 import NavComp from "./Navigation/NavComp";
 
 
