@@ -1,8 +1,41 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+function mapStateToProps(state) {
+  return {
+    SubTotal: state.CartItem.total
+  };
+}
 
 class PriceDetails extends Component {
-  state = {};
+  CalculateOrder = (SubTotal, Shipping, Tax) => {
+    const OrderTotal = SubTotal + Shipping + Tax;
+
+    this.setState({
+      SubTotal: SubTotal,
+      Tax: Tax,
+      Shipping: Shipping,
+      OrderTotal: OrderTotal
+    });
+  };
+
+  componentWillMount() {
+    const SubTotal = this.props.SubTotal;
+    const Shipping = 10;
+    const Tax = 0;
+    this.CalculateOrder(SubTotal, Shipping, Tax);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.SubTotal !== this.props.SubTotal) {
+      const SubTotal = this.props.SubTotal;
+      const Shipping = 10;
+      const Tax = 0;
+      this.CalculateOrder(SubTotal, Shipping, Tax);
+    }
+  }
+
   render() {
     return (
       <div className="row py-5 p-4 bg-white rounded shadow-sm">
@@ -18,19 +51,19 @@ class PriceDetails extends Component {
             <ul className="list-unstyled mb-4">
               <li className="d-flex justify-content-between py-3 border-bottom">
                 <strong className="text-muted">Order Subtotal </strong>
-                <strong>${1000}</strong>
+                <strong>${this.state.SubTotal}</strong>
               </li>
               <li className="d-flex justify-content-between py-3 border-bottom">
                 <strong className="text-muted">Shipping and handling</strong>
-                <strong>${10}</strong>
+                <strong>${this.state.Shipping}</strong>
               </li>
               <li className="d-flex justify-content-between py-3 border-bottom">
                 <strong className="text-muted">Tax</strong>
-                <strong>${0}</strong>
+                <strong>${this.state.Tax}</strong>
               </li>
               <li className="d-flex justify-content-between py-3 border-bottom">
                 <strong className="text-muted">Total</strong>
-                <h5 className="font-weight-bold">${1000}</h5>
+                <h5 className="font-weight-bold">${this.state.OrderTotal}</h5>
               </li>
             </ul>
             <a href="#" className="btn btn-dark rounded-pill py-2 btn-block">
@@ -43,4 +76,7 @@ class PriceDetails extends Component {
   }
 }
 
-export default PriceDetails;
+export default connect(
+  mapStateToProps,
+  null
+)(PriceDetails);

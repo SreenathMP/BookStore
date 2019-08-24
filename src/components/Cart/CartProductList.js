@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -22,9 +23,23 @@ class CartProductList extends Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  state = {};
+  state = {
+    clicked: false
+  };
+
+  handleupdate = () => {
+    if (!this.state.clicked) {
+      this.setState({
+        clicked: true
+      });
+    } else
+      this.setState({
+        clicked: false
+      });
+  };
 
   handleDelete = e => {
+    e.preventDefault();
     const index = e.target.getAttribute("data-index");
 
     this.props.delItems(parseInt(index));
@@ -59,10 +74,9 @@ class CartProductList extends Component {
                   <th scope="row" className="border-0">
                     <div className="p-2">
                       <img
-                        src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg"
-                        alt=""
-                        width="70"
+                        src="/images/items/harry.jpg"
                         className="img-fluid rounded shadow-sm"
+                        width="40"
                       />
                       <div className="ml-3 d-inline-block align-middle">
                         <h6 className="mb-0">
@@ -82,10 +96,14 @@ class CartProductList extends Component {
                     </div>
                   </th>
                   <td className="border-0 align-middle">
-                    <strong>${item.price}</strong>
+                    <strong>${item.price * item.quantity}</strong>
                   </td>
                   <td className="border-0 align-middle">
-                    <ItemCounter />
+                    <ItemCounter
+                      id={item.bookID}
+                      quantity={item.quantity}
+                      handlestate={this.handleupdate}
+                    />
                   </td>
 
                   <td className="border-0 align-middle">

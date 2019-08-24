@@ -120,7 +120,7 @@ class Paginator extends React.Component {
         }
 
         return (
-            
+               
             <ul className="pagination">
                 <li className={pager.currentPage === 1 ? 'disabled' : ''}>
                     <a className="page-link" style={pagelink} onClick={() => this.setPage(1)}>First</a>
@@ -130,7 +130,7 @@ class Paginator extends React.Component {
                 </li>
                 {pager.pages.map((page, index) =>
                     <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-                        <a className="page-link" activeClassName="active" style={pagelink} onClick={() => this.setPage(page)}>{page}</a>
+                        <a className="page-link"  style={pagelink} onClick={() => this.setPage(page)}>{page}</a>
                     </li>
                 )}
                 <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
@@ -140,6 +140,7 @@ class Paginator extends React.Component {
                     <a className="page-link" style={pagelink} onClick={() => this.setPage(pager.totalPages)}>Last</a>
                 </li>
             </ul>
+            
             
         );
     }

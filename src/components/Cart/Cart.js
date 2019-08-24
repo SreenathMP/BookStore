@@ -5,6 +5,8 @@ import NavComp from "../Navigation/NavComp";
 import { connect } from "react-redux";
 import CartProductList from "./CartProductList";
 import PriceDetails from "./PriceDetails";
+import CartEmpty from "./CartEmpty";
+
 
 function mapStateToProps(state) {
   return {
@@ -30,7 +32,7 @@ class Cart extends Component {
             </div>
           </div>
         ) : (
-          <h1> cart empty </h1>
+          <CartEmpty />
         )}
       </div>
     );

@@ -26,49 +26,39 @@ class BookItems extends Component {
   author_max = 20;
   state = { Books: [], pageOfItems: [] };
 
-  
-
-    componentWillMount(){
-      
+  componentWillMount() {
     this.bookList.GetBooks().then(books => {
-      
       this.setState({
         Books: books.sort((a, b) => (a.title > b.title ? 1 : -1))
       });
     });
-    }
+  }
 
-  componentDidUpdate(){
-    
-
-    const books=JSON.stringify(this.state.Books);
-    localStorage.setItem("Books",books);
+  componentDidUpdate() {
+    const books = JSON.stringify(this.state.Books);
+    localStorage.setItem("Books", books);
   }
   onChangePage(pageOfItems) {
     // update state with new page of items
     this.setState({ pageOfItems: pageOfItems });
   }
 
-  componentDidMount(){
-    
-
-    const json= localStorage.getItem("Books");
-    const Books=JSON.parse(json);
+  componentDidMount() {
+    const json = localStorage.getItem("Books");
+    const Books = JSON.parse(json);
     this.setState({
-     Books
-    })
+      Books
+    });
   }
 
   handleClick = e => {
     e.preventDefault();
 
     const index = e.target.getAttribute("data-index");
-    const bookID=parseInt(index);
+    const bookID = parseInt(index);
     const { Books } = this.state;
-    const bookIndx=Books.map((o) => o.bookID).indexOf(bookID);
-    const quantity = 1;
-    const item = { ...Books[bookIndx], quantity };
-    this.props.addItems(item);
+    const bookIndx = Books.map(o => o.bookID).indexOf(bookID);
+    this.props.addItems(Books[bookIndx]);
 
     this.props.history.push(`/cart/`);
   };
@@ -81,14 +71,36 @@ class BookItems extends Component {
             <div key={index} className="col-lg-4 col-md-6 col-sm-12">
               <figure className="card card-product">
                 <div className="img-wrap">
-                  <img src="images/items/harry.jpg" />
+                  <Link
+                    to={{
+                      pathname: `/book/${book.bookID}`,
+                      state: {
+                        id: book.bookID,
+                        title: book.title,
+                        authors: book.authors,
+                        price: book.price,
+                        language: book.language_code,
+                        reviews: book.ratings_count
+                      }
+                    }}
+                  >
+                    <img src="/images/items/harry.jpg" />
+                  </Link>
                 </div>
                 <figcaption className="info-wrap">
                   {book.title.length > this.title_max ? (
                     <h4>
                       <Link
                         to={{
-                          pathname: `/book/${book.title}`
+                          pathname: `/book/${book.bookID}`,
+                          state: {
+                            id: book.bookID,
+                            title: book.title,
+                            authors: book.authors,
+                            price: book.price,
+                            language: book.language_code,
+                            reviews: book.ratings_count
+                          }
                         }}
                       >{`${book.title.substring(0, this.title_max)}...`}</Link>
                     </h4>
@@ -96,7 +108,14 @@ class BookItems extends Component {
                     <h4 className="title">
                       <Link
                         to={{
-                          pathname: `/book/${book.title}`
+                          pathname: `/book/${book.bookID}`,
+                          state: {
+                            id: book.bookID,
+                            title: book.title,
+                            authors: book.authors,
+                            price: book.language_code,
+                            reviews: book.ratings_count
+                          }
                         }}
                       >
                         {book.title}

@@ -327,8 +327,11 @@ select.form-control-sm:not([size]):not([multiple]) {
 .btn:disabled {
   opacity: 0.65;
 }
-
+.button-product {
+  margin-top:2rem;
+}
 .btn-primary {
+  
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
@@ -352,6 +355,8 @@ select.form-control-sm:not([size]):not([multiple]) {
 }
 
 .btn-outline-primary {
+  
+  margin-left: 1rem;
   color: #007bff;
   background-color: transparent;
   background-image: none;
@@ -490,6 +495,7 @@ article:after {
   margin-bottom: 10px;
   overflow: hidden;
   background-color: #fff;
+  
 }
 
 .gallery-wrap .img-big-wrap a {
@@ -498,7 +504,8 @@ article:after {
 }
 
 .gallery-wrap .img-big-wrap img {
-  height: 450px;
+  height: 400px;
+  margin-top: 1rem;
   width: auto;
   display: inline-block;
   cursor: -webkit-zoom-in;
