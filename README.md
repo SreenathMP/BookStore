@@ -17,11 +17,15 @@ Product - Display Selected Product info
 # Under the hood
 
 React
+
 Redux
+
 ES6
 
 # Build/Run
 
 git clone
+
 npm install
+
 npm start
