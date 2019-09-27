@@ -20,7 +20,7 @@ class PriceDetails extends Component {
     });
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const SubTotal = this.props.SubTotal;
     const Shipping = 10;
     const Tax = 0;

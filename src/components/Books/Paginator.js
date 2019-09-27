@@ -17,7 +17,7 @@ const propTypes = {
 
 const defaultProps = {
     initialPage: 1,
-    pageSize: 10
+    pageSize: 6
 }
 
 class Paginator extends React.Component {
@@ -66,7 +66,7 @@ class Paginator extends React.Component {
         currentPage = currentPage || 1;
 
         // default page size is 10
-        pageSize = pageSize || 10;
+        pageSize = pageSize || 6;
 
         // calculate total pages
         var totalPages = Math.ceil(totalItems / pageSize);

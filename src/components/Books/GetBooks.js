@@ -8,6 +8,7 @@ class GetBooks extends Component {
       `https://bookstore-f21dc.firebaseio.com/books.json`
     );
     const data = await response.json();
+    console.log(data);
     return data;
   };
 

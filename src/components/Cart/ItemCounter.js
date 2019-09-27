@@ -56,7 +56,7 @@ class ItemCounter extends Component {
     }
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.setState({
       quantity: this.props.quantity
     });

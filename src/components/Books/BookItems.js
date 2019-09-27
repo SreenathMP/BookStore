@@ -26,7 +26,7 @@ class BookItems extends Component {
   author_max = 20;
   state = { Books: [], pageOfItems: [] };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.bookList.GetBooks().then(books => {
       this.setState({
         Books: books.sort((a, b) => (a.title > b.title ? 1 : -1))
@@ -46,9 +46,11 @@ class BookItems extends Component {
   componentDidMount() {
     const json = localStorage.getItem("Books");
     const Books = JSON.parse(json);
+    if(Books){
     this.setState({
       Books
     });
+  }
   }
 
   handleClick = e => {

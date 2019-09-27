@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
 class Product extends Component {
   state = {};
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const {
       id,
       title,
