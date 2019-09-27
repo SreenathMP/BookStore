@@ -441,7 +441,7 @@ select.form-control-sm:not([size]):not([multiple]) {
   }
 }
 
-/*! CSS Used from: http://bootstrap-ecommerce.com/ui-ecommerce/fonts/fontawesome/css/fontawesome-all.min.css */
+
 .fa,
 .fas {
   -moz-osx-font-smoothing: grayscale;
@@ -471,7 +471,7 @@ select.form-control-sm:not([size]):not([multiple]) {
   font-weight: 900;
 }
 
-/*! CSS Used from: http://bootstrap-ecommerce.com/ui-ecommerce/css/ui.css?v=1.0 */
+
 a:hover {
   text-decoration: none;
 }

@@ -5,11 +5,7 @@ export const AddtoCart = payload => {
   };
 };
 
-export const CheckLogin = () => {
-  return {
-    type: "SIGN_IN"
-  };
-};
+
 
 export const DeleteCartItem = payload => {
   return {

@@ -1,8 +1,8 @@
 import CartItem from "./CartItem";
 import { combineReducers } from "redux";
 
-const allReducers = combineReducers({
+const rootReducer = combineReducers({
   CartItem: CartItem
 });
 
-export default allReducers;
+export default rootReducer;
